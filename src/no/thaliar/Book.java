@@ -1,17 +1,21 @@
 package no.thaliar;
 
-public class Book {
+public class Book extends Product{
     private String title;
     private String author;
-    private int price;
 
-    public Book (String title, String author, int price){
+
+    public Book (String title, String author, int price, Long productId){
         this.title = title;
         this.author = author;
         this.price = price;
+        this.productId = productId;
     }
 
-
+ @Override
+    public String toString () {
+        return "Title: " + title + "\nAuthor: " + author + "\nPrice:" + price;
+    }
 
     public void setTitle(String title) {
         this.title = title;
@@ -29,15 +33,7 @@ public class Book {
         return author;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
     public void printBookDetails() {
-        System.out.println("Title: " + this.getTitle() + "\nAuthor: " + this.getAuthor() + "\nPrice: " + this.getPrice());
+        System.out.println("Title: " + getTitle() + "\nAuthor: " + getAuthor() + "\nPrice: " + getPrice());
     }
 }
